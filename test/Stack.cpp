@@ -10,11 +10,11 @@ TEST(StackTest, Push) {
 }
 TEST(StackTest, Resize) {
 	Stack* t = new Stack();
-	for (int i = 1; i<11; ++i) {
+	for (int i = 1; i<12; ++i) {
 		t->push(i);	
 	}
-	t->push(11);
-	EXPECT_EQ(11, t->peek());
+	t->push(12);
+	EXPECT_EQ(12, t->peek());
 
 	delete t;
 }

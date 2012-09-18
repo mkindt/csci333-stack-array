@@ -3,7 +3,8 @@
 
 Stack::Stack(int initialSize) {
   theStack = new int[initialSize];
-  top = 0;
+  	theStackCapacity = initialSize;
+	top = 0;
 }
 
 Stack::~Stack() {
@@ -16,6 +17,18 @@ void Stack::push(int value) {
   // copy all elements to new stack
   // delete old stack
   // point old stack pointer to new stack
+
+	if (top == theStackCapacity) {
+		int * biggerStack;
+		std::cout << "building new stack" << std::endl;
+		biggerStack = new int[2*theStackCapacity];
+		for (int i = 0; i < top; ++i)
+			biggerStack[i]=theStack[i];
+		delete[] theStack;
+		theStack = biggerStack;
+		theStackCapacity = 2*theStackCapacity;
+	}
+
   theStack[top] = value;
   top++;
 }
