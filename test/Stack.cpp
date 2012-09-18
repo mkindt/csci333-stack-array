@@ -14,7 +14,10 @@ TEST(StackTest, Resize) {
 		t->push(i);	
 	}
 	t->push(12);
-	EXPECT_EQ(12, t->peek());
+	t->pop();
+	t->pop();
+	t->pop();
+	EXPECT_EQ(9, t->peek());
 
 	delete t;
 }
